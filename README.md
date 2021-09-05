@@ -28,7 +28,7 @@ note: extract boot img from any miui rom with the same security patch or create 
 channel with lavender roms
 https://t.me/RN7Miui
 
-contact me if you want to post rom on channels
+contact me if you want to post rom on channels https://t.me/LX_44
 
 Thanks to: Nebtrassy / Manifest
 
