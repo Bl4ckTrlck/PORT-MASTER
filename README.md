@@ -30,5 +30,5 @@ https://t.me/RN7Miui
 
 contact me if you want to post rom on channels https://t.me/LX_44
 
-Thanks to: Nebtrassy / Manifest
+Thanks to: Nebrassy / Manifest
 
