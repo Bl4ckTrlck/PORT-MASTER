@@ -22,14 +22,14 @@ if [ "$DEVICE" = "1" ]; then
 sudo chmod +x $FIL/man.sh 
 sudo su -c "$FIL/man.sh $PORTZIP $CURRENTUSER"
 sudo mv $FIL/out/* $CURRENTDIR/
-sudo chmod 777 $CURRENTDIR/MIUI_.zip -R
+sudo chmod 777 $CURRENTDIR/MIUI_jasmine_Sprout*.zip -R
 exit
 fi
 if [ "$DEVICE" = "2" ]; then
 sudo chmod +x $FIL/mal.sh 
 sudo su -c "$FIL/mal.sh $PORTZIP $CURRENTUSER"
 sudo mv $FIL/out/* $CURRENTDIR/
-sudo chmod 777 $CURRENTDIR/MIUI_.zip -R
+sudo chmod 777 $CURRENTDIR/MIUI_Wayne*.zip -R
 exit
 fi
 
