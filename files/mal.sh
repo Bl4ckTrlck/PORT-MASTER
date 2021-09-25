@@ -12,7 +12,7 @@ imgs=$CURRENTDIR/fac
 OUTP=$CURRENTDIR/out
 set -e
 
-rm -rf $OUTP || true
+rm -rf $OUTP $cam $sys $ven $lasys $laven || true
 mkdir $OUTP
 
 #MIUI ZIP Process
@@ -43,9 +43,14 @@ mkdir $ven || true
 mkdir $sys || true
 mkdir $lasys || true
 mkdir $laven || true
-mount -o rw,noatime $imgs/caM.img $cam
-mount -o rw,noatime $imgs/Lac.img $sys
-mount -o rw,noatime $imgs/Dlac.img $ven
+
+cp -af $imgs/caM.img $cam	
+cp -af $imgs/Lac.img $sys
+cp -af $imgs/Dlac.img $ven
+
+mount -o rw,noatime $cam/caM.img $cam
+mount -o rw,noatime $sys/Lac.img $sys
+mount -o rw,noatime $ven/Dlac.img $ven
 mount -o rw,noatime $OUTP/system.img $lasys
 mount -o rw,noatime $OUTP/vendor.img $laven
 
@@ -346,10 +351,11 @@ umount $sys
 umount $ven
 umount $laven
 umount $lasys
-rmdir $cam
-rmdir $sys
-rmdir $ven
+rm -r $cam
+rm -r $sys
+rm -r $ven
 rmdir $lasys
 rmdir $laven
 
-sudo ./files/last.sh
+DEVICE=Wayne
+sudo su -c "$CURRENTDIR/last.sh $DEVICE $ROMVERSION $CURRENTUSER"
