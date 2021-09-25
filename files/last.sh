@@ -19,7 +19,7 @@ brotli -j -v -q 6 $OUTP/zip/system.new.dat
 brotli -j -v -q 6 $OUTP/zip/vendor.new.dat
 
 cd $OUTP/zip
-zip -ry $OUTP/MIUI_$ROMVERSION.zip *
+zip -ry $OUTP/MIUI_$DEVICE-$ROMVERSION.zip *
 cd $CURRENTDIR
 rm -rf $OUTP/zip
 chown -hR $CURRENTUSER:$CURRENTUSER $OUTP
