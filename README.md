@@ -4,7 +4,6 @@ MIUI RN7 to A2/6X
 
 This tool make miui rom to jasme/wayne based on lavender
 Note only android 10 bases
-only system/vendor(for the moment)
 
 Steps:
 Download Miui Rom (lavender - Redmi Note 7 )
@@ -23,7 +22,17 @@ example: miui_xl.zip / "/home/LX/Desktop/miuitool/miui_xl.zip"
 will take 1-10? minutes
 
 add boot img to zip, and install
-note: extract boot img from any miui rom with the same security patch or create one (im working on that script?)
+note: extract boot img from any miui rom with the same security patch or create one 
+
+to create one boot.img 
+use ./cx.sh
+and read
+
+Requeriments ( creating boot.img)
+-A10 Rom Source
+-12 Ram
+-4 cores
+-Storage 200 GB + 
 
 channel with lavender roms
 https://t.me/RN7Miui
