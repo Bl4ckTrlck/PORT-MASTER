@@ -33,6 +33,7 @@ brotli -j -v -d $OUTP/vendor.new.dat.br -o $OUTP/vendor.new.dat
 $CURRENTDIR/sdat2img/sdat2img.py $OUTP/system.transfer.list $OUTP/system.new.dat $OUTP/system.img
 $CURRENTDIR/sdat2img/sdat2img.py $OUTP/vendor.transfer.list $OUTP/vendor.new.dat $OUTP/vendor.img
 rm $OUTP/system.new.dat $OUTP/vendor.new.dat $OUTP/system.transfer.list $OUTP/vendor.transfer.list
+cp -af $CURRENTDIR/jasmine.img $OUTP/zip/boot.img
 
 printf "\n" 
 printf "converting rom"
@@ -67,6 +68,7 @@ sed -i "/persist.camera.HAL3.enabled=/c\persist.camera.HAL3.enabled=1
 /persist.vendor.camera.exif.model=/c\persist.vendor.camera.exif.model=MI A2
 /ro.product.name=/c\ro.product.name=wayne
 /ro.product.device=/c\ro.product.device=wayne
+/ro.build.version.security_patch=/c\ro.build.version.security_patch=2022-01-01
 /ro.build.product=/c\ro.build.product=wayne
 /ro.product.system.device=/c\ro.product.system.device=wayne
 /ro.product.system.model=/c\ro.product.system.model=MI A2
@@ -116,8 +118,9 @@ printf "\n"
 printf "." 
  
 #Device_Feautures
-cp -af $ven/etc/device_features/wayne.xml $lasys/system/etc/device_features/
 mkdir $laven/etc/device_features || true
+mkdir $lasys/system/etc/device_features || true
+cp -af $ven/etc/device_features/wayne.xml $lasys/system/etc/device_features/
 cp -af $ven/etc/device_features/wayne.xml $laven/etc/device_features/
 
 cp -af $ven/etc/MIUI_DualCamera_watermark.png $lasys/system/etc/dualcamera.png
@@ -202,6 +205,10 @@ cp -af $ven/lib/libmmcamera* $laven/lib/
 
 printf "\n" 
 printf "." 
+
+#fix_CTS_Weekly
+sed -i "863 i \chmod 0640 /sys/fs/selinux/enforce
+863 i \chmod 0440 /sys/fs/selinux/policy" $lasys/init.rc
 
 #CORRECTIONS-CAMERA
 cp -af $cam/lib/* $laven/lib/
