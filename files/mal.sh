@@ -219,6 +219,12 @@ printf "."
 sed -i "863 i \chmod 0640 /sys/fs/selinux/enforce
 863 i \chmod 0440 /sys/fs/selinux/policy" $lasys/init.rc
 
+#fix_mi_account
+cp -af $CURRENTDIR/XiaomiAccount.apk $lasys/system/app/XiaomiAccount/
+chmod 644 $lasys/system/app/XiaomiAccount/XiaomiAccount.apk
+setfattr -h -n security.selinux -v u:object_r:system_file:s0 $lasys/system/app/XiaomiAccount/XiaomiAccount.apk
+chown -hR root:root $lasys/system/app/XiaomiAccount/XiaomiAccount.apk
+
 #CORRECTIONS-CAMERA
 cp -af $cam/lib/* $laven/lib/
 cp -f $cam/lib/hw/camera.sdm660.so $laven/lib/hw/
