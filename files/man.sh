@@ -122,6 +122,8 @@ mkdir $laven/etc/device_features || true
 mkdir $lasys/system/etc/device_features || true
 cp -af $ven/etc/device_features/wayne.xml $lasys/system/etc/device_features/
 cp -af $ven/etc/device_features/wayne.xml $laven/etc/device_features/
+chmod 755 $lasys/system/etc/device_features/wayne.xml
+chmod 755 $laven/etc/device_features/wayne.xml
 
 cp -af $ven/etc/MIUI_DualCamera_watermark.png $lasys/system/etc/dualcamera.png
 cp -af $ven/etc/MIUI_DualCamera_watermark.png $laven/etc/
