@@ -122,6 +122,8 @@ mkdir $laven/etc/device_features || true
 mkdir $lasys/system/etc/device_features || true
 cp -af $ven/etc/device_features/wayne.xml $lasys/system/etc/device_features/
 cp -af $ven/etc/device_features/wayne.xml $laven/etc/device_features/
+chmod 755 $lasys/system/etc/device_features/wayne.xml
+chmod 755 $laven/etc/device_features/wayne.xml
 
 cp -f $CURRENTDIR/dualcamera.png $lasys/system/etc/
 chmod 644 $lasys/system/etc/dualcamera.png
